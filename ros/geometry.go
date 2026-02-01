@@ -8,15 +8,6 @@ type Point struct {
 
 type Vector3 Point
 
-type se3 struct {
-	Linear  Vector3
-	Angular Vector3
-}
-
-type Accel se3
-type Joint se3
-type Twist se3
-
 type Quaternion struct {
 	X float64
 	Y float64
@@ -27,4 +18,28 @@ type Quaternion struct {
 type Pose struct {
 	Position    Point
 	Orientation Quaternion
+}
+
+type PoseStamped struct {
+	Header Header
+	Pose   Pose
+}
+
+type se3 struct {
+	Linear  Vector3
+	Angular Vector3
+}
+
+type Accel se3
+type Joint se3
+type Twist se3
+
+type AccelStamped struct {
+	Header Header
+	Accels []Accel
+}
+
+type TwistStamped struct {
+	Header Header
+	Twist  Twist
 }
