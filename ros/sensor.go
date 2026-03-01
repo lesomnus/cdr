@@ -8,6 +8,19 @@ type JointState struct {
 	Effort   []float64
 }
 
+type LaserScan struct {
+	Header         Header
+	AngleMin       float32
+	AngleMax       float32
+	AngleIncrement float32
+	TimeIncrement  float32
+	ScanTime       float32
+	RangeMin       float32
+	RangeMax       float32
+	Ranges         []float32
+	Intensities    []float32
+}
+
 type PointFieldDataType uint8
 
 const (

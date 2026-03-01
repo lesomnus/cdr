@@ -25,6 +25,16 @@ type PoseStamped struct {
 	Pose   Pose
 }
 
+type PoseWithCovariance struct {
+	Pose       Pose
+	Covariance [36]float64
+}
+
+type PoseWithCovarianceStamped struct {
+	Header Header
+	Pose   PoseWithCovariance
+}
+
 type se3 struct {
 	Linear  Vector3
 	Angular Vector3
@@ -42,4 +52,9 @@ type AccelStamped struct {
 type TwistStamped struct {
 	Header Header
 	Twist  Twist
+}
+
+type TwistWithCovariance struct {
+	Twist      Twist
+	Covariance [36]float64
 }
