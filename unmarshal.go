@@ -284,11 +284,18 @@ func (u *unmarshaler) readString() (string, error) {
 	if l == 0 {
 		return "", nil
 	}
+	if l == 1 {
+		// There is only a zero terminator.
+		u.p += 1
+		return "", nil
+	}
 
 	b, err := u.next(int(l - 1)) // skip zero terminator
 	if err != nil {
 		return "", err
 	}
+	// Consider skipped zero terminator as well.
+	u.p += 1
 
 	return string(b), nil
 }
