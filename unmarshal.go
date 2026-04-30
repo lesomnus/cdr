@@ -365,9 +365,6 @@ func (u *unmarshaler) unmarshalArray(v reflect.Value) error {
 func (u *unmarshaler) unmarshalStruct(v reflect.Value) error {
 	t := v.Type()
 
-	a := maxAlignOf(t)
-	u.align(a)
-
 	for i := 0; i < t.NumField(); i++ {
 		if !t.Field(i).IsExported() {
 			continue

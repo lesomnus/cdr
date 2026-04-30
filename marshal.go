@@ -432,8 +432,6 @@ func (m *marshaler) marshalArray(v reflect.Value) {
 
 func (m *marshaler) marshalStruct(v reflect.Value) {
 	t := v.Type()
-	n := maxAlignOf(t)
-	m.alignedNextN(n, 0)
 	for i := 0; i < t.NumField(); i++ {
 		if !t.Field(i).IsExported() {
 			continue // unexported
